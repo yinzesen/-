@@ -6,6 +6,26 @@
 //
 // Scripts
 // 
+const { Query, User } = AV;
+        AV.init({
+            appId: "66VsRaNy5zMCUn3TbhMdAokp-9Nh9j0Va",
+            appKey: "sepfHL11JUHoPqpyhN8Gw8K1",
+            serverURL: "https://66vsrany.lc-cn-e1-shared.com"
+        });
+        // 声明 class
+        const Todo = AV.Object.extend('Todo');
+document.getElementById("button1").addEventListener("click",()=>{
+    let i = document.getElementById("liuyan").value;
+    const todo = new Todo();
+            todo.set('yijian', i);
+            // 将对象保存到云端
+            todo.save().then((todo) => {
+                alert("意见提交成功")
+            }, (error) => {
+                alert("意见提交失败")
+
+            });
+})
 
 window.addEventListener('DOMContentLoaded', event => {
 
